@@ -1,0 +1,24 @@
+package nl.wouterbohlken.transip
+
+import nl.wouterbohlken.transip.api.TransipAPI
+import nl.wouterbohlken.transip.authentication.Authenticator
+import java.io.File
+
+class Test {
+  var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Imk4I29OJiNUQVc_QGRSQW8xJUsmIn0.eyJpc3MiOiJhcGkudHJhbnNpcC5ubCIsImF1ZCI6ImFwaS50cmFuc2lwLm5sIiwianRpIjoiaTgjb04mI1RBVz9AZFJBbzElSyYiLCJpYXQiOjE1ODM2ODE0NzYsIm5iZiI6MTU4MzY4MTQ3NiwiZXhwIjoxNTg2MzU2Mjc2LCJjaWQiOiIyMDAxMjUyOTciLCJybyI6dHJ1ZSwiZ2siOnRydWUsImt2IjpmYWxzZX0.Bn4jXaJHGvd_kfpuwJz8-s6qOUaWe4GkYjdYTwmjYMWMwPILnYZrpbt3cVZpevFJnyrLCJBD6Bi0c_QJeI-T8XJpjReVC0tTmBiC7pcQO_q8hgzTkdifoQEnXlAe_lW64sEcNQbTUoh005OqWawUFjfaQnR1L78bC6VEcYzs0PumQggGusbDcXdZQiuuw6031DV1b4lzTcPVdkRafthKyqBDHOxlSrGLZrE7ENDSnn7NN5DLHvTlCyJw5MsZ4utxy0lCiUpb54dqSPMJ2VPwmg5sp_-U5Rw5W82V6-GOc4Q159DWNlG-nQpzOuIZrdT7hymHKCVfWHhymJwwBxlTvQ"
+  //  val api = TransipAPI(token)
+  var demoToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImN3MiFSbDU2eDNoUnkjelM4YmdOIn0.eyJpc3MiOiJhcGkudHJhbnNpcC5ubCIsImF1ZCI6ImFwaS50cmFuc2lwLm5sIiwianRpIjoiY3cyIVJsNTZ4M2hSeSN6UzhiZ04iLCJpYXQiOjE1ODIyMDE1NTAsIm5iZiI6MTU4MjIwMTU1MCwiZXhwIjoyMTE4NzQ1NTUwLCJjaWQiOiI2MDQ0OSIsInJvIjpmYWxzZSwiZ2siOmZhbHNlLCJrdiI6dHJ1ZX0.fYBWV4O5WPXxGuWG-vcrFWqmRHBm9yp0PHiYh_oAWxWxCaZX2Rf6WJfc13AxEeZ67-lY0TA2kSaOCp0PggBb_MGj73t4cH8gdwDJzANVxkiPL1Saqiw2NgZ3IHASJnisUWNnZp8HnrhLLe5ficvb1D9WOUOItmFC2ZgfGObNhlL2y-AMNLT4X7oNgrNTGm-mespo0jD_qH9dK5_evSzS3K8o03gu6p19jxfsnIh8TIVRvNdluYC2wo4qDl5EW5BEZ8OSuJ121ncOT1oRpzXB0cVZ9e5_UVAEr9X3f26_Eomg52-PjrgcRJ_jPIUYbrlo06KjjX2h0fzMr21ZE023Gw"
+  val api = TransipAPI(demoToken)
+
+  fun doStuff() {
+//    authenticate()
+  }
+
+  fun authenticate() {
+    val login = "wbohlken"
+    val privateKey = File("/home/wouter/Projects/transip-api-kotlin/key.pkcs8")
+    val authenticator = Authenticator(privateKey, login, readOnly = true)
+    token = authenticator.generateToken()
+//    api.token = token
+  }
+}
