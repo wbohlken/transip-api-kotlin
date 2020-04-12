@@ -14,8 +14,8 @@ task run(type: JavaExec, dependsOn: classes) {
 dependencies {
   api deps.kotlin.coroutines.core
   implementation deps.kotlin.stdlib8
-  implementation 'com.squareup.okhttp3:okhttp:4.4.0'
-  implementation 'com.google.code.gson:gson:2.8.5'
+  implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+  implementation 'com.google.code.gson:gson:2.8.6'
 
   testImplementation deps.kotlin.test.mockito
   testImplementation deps.test.junit

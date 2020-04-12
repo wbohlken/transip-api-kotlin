@@ -1,25 +1,25 @@
 // TOOD: How to publish?
-//apply plugin: 'com.vanniktech.maven.publish'
-//
-//group = GROUP
-//version = VERSION_NAME
-//
-//mavenPublish {
-//  targets {
-//    uploadArchives {
-//      def (user, apiKey) = getUserAndApiKey()
-//
-//      def repositoryUrl = getBintrayRepositoryUrl()
-//      if (repositoryUrl != null) {
-//        releaseRepositoryUrl = repositoryUrl
-//      }
-//
-//      repositoryUsername = user
-//      repositoryPassword = apiKey
-//      signing = false
-//    }
-//  }
-//}
+apply plugin: 'com.vanniktech.maven.publish'
+
+group = "nl.wouterbohlken.transip-api-kotlin"
+version = "0.1"
+
+mavenPublish {
+  targets {
+    uploadArchives {
+      def (user, apiKey) = getUserAndApiKey()
+
+      def repositoryUrl = getBintrayRepositoryUrl()
+      if (repositoryUrl != null) {
+        releaseRepositoryUrl = repositoryUrl
+      }
+
+      repositoryUsername = user
+      repositoryPassword = apiKey
+      signing = false
+    }
+  }
+}
 
 private def getBintrayRepositoryUrl() {
   def packageName = POM_ARTIFACT_ID

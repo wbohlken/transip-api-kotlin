@@ -91,11 +91,11 @@ class Domain(val token: String) {
     return whoisClient
   }
 
-  fun availability(domainName: String): DomainAvailabilityClient {
+  fun availability(): DomainAvailabilityClient {
     return availabilityClient
   }
 
-  fun tld(domainName: String): TldClient {
+  fun tld(): TldClient {
     return tldClient
   }
 }
