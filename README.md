@@ -3,7 +3,21 @@ A complete client implementation of the TransIP REST API for Java/Kotlin.
 
 ## Installation
 
+See the repository and versions on [maven central](https://search.maven.org/artifact/nl.wouterbohlken.transip-api-kotlin/transip-api-client)
 
+### Gradle DSL
+```
+implementation 'nl.wouterbohlken.transip-api-kotlin:transip-api-client:1.0.0'
+```
+
+### Apache maven
+```xml
+<dependency>
+  <groupId>nl.wouterbohlken.transip-api-kotlin</groupId>
+  <artifactId>transip-api-client</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 ## Authentication
 
@@ -42,18 +56,19 @@ val api = TransipAPI(token)
 val vpses = api.vps.vpses().list()
 ```
 
-Most product (like domain and VPS) have nested resources, for retrieving these nested resources, an additional identifier is needed, you can use the `getIdentifier()` method for this:
+Most products (like domain and VPS) have nested resources, for retrieving these nested resources, an additional identifier is needed, you can use the `getIdentifier()` method for this:
 
 ```kotlin
 val api = TransipAPI(token)
 val vpses = api.vps.vpses().list()
 val firstVps = vpses[0]
-val snapshots = api.vps.snapshots(firstVps.vpsIdentifier).list()
+val snapshots = api.vps.snapshots(firstVps.getIdentifier()).list()
 ```
 
 
-## Known issues and limitations
+## Limitations
 
--  Only string representation of tokens: the tokens are not JSON decoded and therefore, no expiration date can be read. This issue can be fixed by using of the of the JWT libraries and decode it.
+-  Only string representation of tokens: the tokens are not JSON decoded and therefore, no expiration date can be read. This issue can be fixed by using one of the JWT libraries and decode it.
 -  No pagination: some list methods on resources support pagination to keep the response size small, this is not yet implemented in this client, only full lists will be returned.
 -  Child clients: every child client inherits from the Client class, this class implements all REST methods (GET, POST, PUT, PATCH, DELETE). Most resources, however, don't support all methods.
+-  Only supports pkcs8 format keys, not the original generated in the control panel.
