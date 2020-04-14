@@ -1,25 +1,26 @@
 // TOOD: How to publish?
 apply plugin: 'com.vanniktech.maven.publish'
+apply plugin: 'signing'
 
 group = "nl.wouterbohlken.transip-api-kotlin"
-version = "0.1"
+version = "0.1-RELEASE"
 
-mavenPublish {
-  targets {
-    uploadArchives {
-      def (user, apiKey) = getUserAndApiKey()
-
-      def repositoryUrl = getBintrayRepositoryUrl()
-      if (repositoryUrl != null) {
-        releaseRepositoryUrl = repositoryUrl
-      }
-
-      repositoryUsername = user
-      repositoryPassword = apiKey
-      signing = false
-    }
-  }
-}
+//mavenPublish {
+//  targets {
+//    uploadArchives {
+//      def (user, apiKey) = getUserAndApiKey()
+//
+//      def repositoryUrl = getBintrayRepositoryUrl()
+//      if (repositoryUrl != null) {
+//        releaseRepositoryUrl = repositoryUrl
+//      }
+//
+//      repositoryUsername = user
+//      repositoryPassword = apiKey
+//      signing = true
+//    }
+//  }
+//}
 
 private def getBintrayRepositoryUrl() {
   def packageName = POM_ARTIFACT_ID
@@ -32,7 +33,7 @@ private def getBintrayRepositoryUrl() {
     logger.warn('bintray.user not set in local.properties, using default publish repo URL.')
     return null
   }
-  return "https://api.bintray.com/maven/$user/maven/$packageName/;publish=1"
+  return "https://dl.bintray.com/$user/$packageName/;publish=1"
 }
 
 private def getUserAndApiKey() {
