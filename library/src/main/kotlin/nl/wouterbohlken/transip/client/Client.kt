@@ -175,6 +175,6 @@ abstract class Client<EntityType>(private val token: String) {
   companion object {
     const val apiUrl = "https://api.transip.nl/v6"
     val mediaTypeJson = "application/json; charset=utf-8".toMediaType()
-    private var rateLimit = RateLimit(-1, -1, -1)
+    var rateLimit = RateLimit(-1, -1, -1)
   }
 }

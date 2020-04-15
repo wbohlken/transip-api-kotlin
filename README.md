@@ -81,6 +81,17 @@ val firstVps = vpses[0]
 val snapshots = api.vps.snapshots(firstVps.getIdentifier()).list()
 ```
 
+## Rate limit
+The `Client` class keeps track of the rate limit by default. It is updated after each request.
+The current rate limit status can be retrieved as such:
+```kotlin
+Client.rateLimit.limit
+Client.rateLimit.remaining
+Client.rateLimit.reset
+Client.rateLimit.hasExceeded()
+Client.rateLimit.isReset()
+```
+
 
 ## Limitations
 
