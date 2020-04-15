@@ -28,7 +28,7 @@ implementation 'nl.wouterbohlken.transip-api-kotlin:transip-api-client:1.0.0'
 
 ## Authentication
 
-1.  Request key in control panel, save its contents to a `key.pem` file in your preferred directory.
+1.  Request a key in the [TransIP control panel](https://www.transip.nl/cp/account/api/), save its contents to a `key.pem` file in your preferred directory.
 
 2.  To make use of the API, the key needs to be converted to PKCS8 format, run the following command and save the `key.pkcs8` file:
 
@@ -49,7 +49,7 @@ val authenticator = Authenticator(privateKey, login)
 val token = authenticator.generateToken()
 ```
 
-You can add parameters to the Authenticator to set an expiration date, label, etc.
+You can add additional parameters to the Authenticator to override the defaults, possible parameters are: `expirationTime`, `label`, `readOnly` and `globalKey`
 
 
 ## Examples
@@ -63,7 +63,7 @@ val api = TransipAPI(token)
 val vpses = api.vps.vpses().list()
 ```
 
-Most functionality have been covered by specific methods, for instance, to register a domain, you can use the following call:
+Most functionality has been covered by specific methods, for instance, to register a domain, you can use the following call:
 
 ```kotlin
 val api = TransipAPI(token)
@@ -93,9 +93,9 @@ Client.rateLimit.isReset()
 ```
 
 
-## Limitations
+## Limitations and future work
 
 -  Only string representation of tokens: the tokens are not JSON decoded and therefore, no expiration date can be read. This issue can be fixed by using one of the JWT libraries and decode it.
 -  No pagination: some list methods on resources support pagination to keep the response size small, this is not yet implemented in this client, only full lists will be returned.
--  Child clients: every child client inherits from the Client class, this class implements all REST methods (GET, POST, PUT, PATCH, DELETE). Most resources, however, don't support all methods. Please refer to the documentation to see what methods can be used on the resources.
+-  Resource clients: every child client inherits from the Client class, this class implements all REST methods (GET, POST, PUT, PATCH, DELETE). Most resources, however, don't support all methods. Please refer to the documentation to see what methods can be used on the resources.
 -  Only supports pkcs8 format keys, not the original generated in the control panel.
