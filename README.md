@@ -13,7 +13,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImN3MiFSbDU2eDNoUnkjelM4YmdOIn0.eyJp
 See the repository and versions on [maven central](https://search.maven.org/artifact/nl.wouterbohlken.transip-api-kotlin/transip-api-client)
 
 ### Gradle DSL
-```
+```kotlin
 implementation 'nl.wouterbohlken.transip-api-kotlin:transip-api-client:1.0.0'
 ```
 
