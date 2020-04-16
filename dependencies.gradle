@@ -1,5 +1,5 @@
 ext.versions = [
-    publishVersion: '1.0.0-SNAPSHOT'
+    publishVersion: '1.0.1'
 ]
 
 ext.deps = [
