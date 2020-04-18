@@ -95,7 +95,7 @@ Client.rateLimit.isReset()
 
 ## Limitations and future work
 
--  Only string representation of tokens: the tokens are not JSON decoded and therefore, no expiration date can be read. This issue can be fixed by using one of the JWT libraries and decode it.
+-  Only string representation of tokens: the tokens are not JSON decoded and therefore, no expiration date can be read. This issue can be fixed by using one of the [JWT libraries](https://jwt.io) and decode it.
 -  No pagination: some list methods on resources support pagination to keep the response size small, this is not yet implemented in this client, only full lists will be returned.
 -  Resource clients: every child client inherits from the Client class, this class implements all REST methods (GET, POST, PUT, PATCH, DELETE). Most resources, however, don't support all methods. Please refer to the documentation to see what methods can be used on the resources.
 -  Only supports pkcs8 format keys, not the original generated in the control panel.
