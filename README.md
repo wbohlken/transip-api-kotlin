@@ -99,3 +99,4 @@ Client.rateLimit.isReset()
 -  No pagination: some list methods on resources support pagination to keep the response size small, this is not yet implemented in this client, only full lists will be returned.
 -  Resource clients: every child client inherits from the Client class, this class implements all REST methods (GET, POST, PUT, PATCH, DELETE). Most resources, however, don't support all methods. Please refer to the documentation to see what methods can be used on the resources.
 -  Only supports pkcs8 format keys, not the original generated in the control panel.
+-  The Signer class supports a File parameter containing the private key, not e.g. an InputStream containing it's contents.
