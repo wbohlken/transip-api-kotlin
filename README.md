@@ -54,7 +54,7 @@ You can add additional parameters to the Authenticator to override the defaults,
 
 ## Examples
 
-Every API should make use of the TransipAPI class. This class only requires a token and then passes this to all resources.
+Every API call should make use of the TransipAPI class. This class only requires a token and then passes this to all resources used.
 
 A typical API call looks like this:
 
